@@ -5,11 +5,16 @@
 </template>
 
 <script>
-  export default {
-    name: 'my-project'
-  }
+export default {
+  name: "my-project",
+};
 </script>
 
 <style>
-  /* CSS */
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
 </style>

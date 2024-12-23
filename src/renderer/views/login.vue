@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import moduleName from '../';
 export default {
   data() {
     return {

@@ -82,10 +82,18 @@ export default {
           companyID: 0,
         };
         let res = await logins(param);
-        if(res.data){
-          this.$router.push(`/home`);
+        console.log(res.data);
+
+        if (res.data) {
+          this.$store
+            .dispatch("user/login", this.loginForm)
+            .then(this.success());
+          // this.$router.push(`/home`);
         }
       });
+    },
+    success() {
+      window.setTimeout(() => this.$router.replace("/home"), 200);
     },
   },
 };

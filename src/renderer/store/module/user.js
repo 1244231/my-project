@@ -24,7 +24,7 @@ const state = {
     telNumber: emptyOrDefault(logininfo._employees.telNumber),
     token: emptyOrDefault(logininfo.token),
     menu: arrayemptyOrDefault(logininfo._menus),
-    lossDays:emptyOrDefault(logininfo.lossDays)
+    lossDays: emptyOrDefault(logininfo.lossDays)
 }
 
 const mutations = createMutations(state, true)
@@ -33,18 +33,17 @@ const actions = {
     async login({ commit }, userInfo) {
         removeAll();
         let data = {
-            TelNumber: userInfo.username,
-            PassWord: userInfo.password,
-            CompanyID: userInfo.companyid,
+            TelNumber: userInfo.telNumber,
+            PassWord: userInfo.passWord,
+            CompanyID: userInfo.companyID,
         };
         let res = await logins(data);
-        let { token = "", _menus: menu = [],lossDays=0,
+        let { token = "", _menus: menu = [], lossDays = 0,
             _employees: { id: empid = "", workEID = "", name = "", avatar = "", telNumber = "", isAdmin = 0 } = {},
             _company: { id: cmpid = "", name: cmpname = "", agentID = "" } = {},
             _cellWidths = []
         } = res.data
-        this.dispatch('tableseetingWidth/setTableCellWidthall', _cellWidths);
-        commit('$all', { token, menu, empid, name, workEID, avatar, telNumber, cmpname, cmpid, agentID, isAdmin,lossDays })
+        commit('$all', { token, menu, empid, name, workEID, avatar, telNumber, cmpname, cmpid, agentID, isAdmin, lossDays })
         setUser(res.data)
         return Promise.resolve()
     },

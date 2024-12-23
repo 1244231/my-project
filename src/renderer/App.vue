@@ -13,8 +13,11 @@ export default {
 <style>
 html,
 body {
-  height: 100%;
+  height: 90%;
   padding: 0;
   margin: 0;
+}
+#app{
+  height: 90%;
 }
 </style>
